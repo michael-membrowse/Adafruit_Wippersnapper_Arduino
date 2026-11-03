@@ -64,7 +64,7 @@ jobs:
 
       - name: Post combined PR comment
         if: steps.download-reports.outputs.result == 'ok'
-        uses: membrowse/membrowse-action/comment-action@3798b761f5838de59cd9850775edbcae572eacf9 # main
+        uses: membrowse/membrowse-action/comment-action@v1
         with:
           json_files: "reports/*.json"
         env:

@@ -44,7 +44,7 @@ runs:
     - name: Run MemBrowse
       id: analyze
       if: steps.target.outputs.target_name != ''
-      uses: membrowse/membrowse-action@3798b761f5838de59cd9850775edbcae572eacf9 # main
+      uses: membrowse/membrowse-action@v1
       with:
         target_name: ${{ steps.target.outputs.target_name }}
         elf: ${{ steps.target.outputs.elf }}
