@@ -3,7 +3,8 @@ name: Membrowse PR Comment
 on:
   workflow_run:
     # workflow_run always runs the copy of this file on the default branch
-    # (main), so list every build workflow that calls membrowse-report.yml.
+    # (main), so list every build workflow that uploads membrowse-report-*
+    # artifacts.
     workflows: ["WipperSnapper Build CI", "Build CI (migrate-api-v2 branch)"]
     types: [completed]
 
@@ -63,7 +64,7 @@ jobs:
 
       - name: Post combined PR comment
         if: steps.download-reports.outputs.result == 'ok'
-        uses: membrowse/membrowse-action/comment-action@v1
+        uses: membrowse/membrowse-action/comment-action@3798b761f5838de59cd9850775edbcae572eacf9 # main
         with:
           json_files: "reports/*.json"
         env:
